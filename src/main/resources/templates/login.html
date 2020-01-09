@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!--<html lang="en">-->
+<head>
+    <meta charset="UTF-8">
+    <title>登录验证</title>
+    <style type="text/css">
+        #content {
+            margin: 144px auto;
+            width: auto;
+            height: auto;
+            border: 1px transparent solid;
+            background-color: #21D4FD;
+            background-image: linear-gradient(243deg, #21D4FD 0%, #B721FF 100%);
+            background-image: -webkit-linear-gradient(243deg, #21D4FD 0%, #B721FF 100%);
+            background-image: -moz-linear-gradient(243deg, #21D4FD 0%, #B721FF 100%);
+            background-image: -o-linear-gradient(243deg, #21D4FD 0%, #B721FF 100%);
+        }
+        #box {
+            margin: 50px auto;
+            width: 30%;
+            height: 360px;
+            background-color: #fff;
+            text-align: center;
+            border-radius: 15px;
+            border: 2px #fff solid;
+            box-shadow: 10px 10px 5px #000000;
+        }
+        .title {
+            line-height: 58px;
+            margin-top: 20px;
+            font-size: 36px;
+            color: #000;
+            height: 58px;
+        }
+        #box:hover {
+            border: 2px #fff solid;
+        }
+        .input {
+            margin-top: 20px;
+        }
+        input {
+            margin-top: 5px;
+            outline-style: none;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            padding: 13px 14px;
+            width: 70%;
+            font-size: 14px;
+            font-weight: 700;
+            font-family: "Microsoft soft";
+        }
+        button {
+            margin-top: 20px;
+            border: none;
+            color: #000;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 15px;
+            background-color: #CCCCCC;
+        }
+        button:hover{
+            background-color: #B721FF;
+            color: #fff;
+        }
+    </style>
+
+    <script src="../static/js/jquery-3.4.1.js"></script>
+    <script type="text/javascript">
+        // function login() {
+        //
+        //     var username = document.getElementById("username").value;
+        //     var password = document.getElementById("password").value;
+        //     testing(username, password)
+        // }
+        //
+        // function testing(username, password) {
+        //     if (username.length < 6 || username.length > 16) {
+        //         alert("用户名长度为6-16位")
+        //     }
+        //     if (password<6 || password1<6)
+        //     {
+        //         alert("密码长度为6-16位");
+        //     }
+        // }
+        $(document).ready(function () {
+            if (window.history && window.history.pushState) {
+                $(window).on('popstate', function () {
+                    // 当点击浏览器的 后退和前进按钮 时才会被触发，
+                    window.history.pushState('forward', null, '');
+                    window.history.forward(1);
+                });
+            }
+            window.history.pushState('forward', null, '');  //在IE中必须得有这两行
+            window.history.forward(1);
+        });
+    </script>
+</head>
+
+<body id="content">
+    <form method="post" action="/login">
+        <div id="box">
+            <div class="title">Login</div>
+            <div class="input">
+                <input type="text" id="username" name="username" AUTOCOMPLETE="off" placeholder="请输入用户名" required/>
+                <br>
+                <input type="password" id="password" name="password" placeholder="请输入密码" required/>
+                <br>
+                <button type="submit">登录</button>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<body>
+<table>
+    <tr>
+        <td>
+            <input type="button" onclick="f()" value="这是一个调用ajax的测试按钮"/>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
+<script type="text/javascript">
+    function f() {
+        $.ajax({
+            url:"/address",
+            type:"post",
+            contentType: "application/json",
+            data: JSON.stringify({"address": "A020307"}),
+            // dataType:"json",
+            success:function(data){
+                alert(data);
+            }
+            // error:function (date) {
+            //     alert(date)
+            // }
+        });
+    }
+</script>
